@@ -84,7 +84,7 @@ git add *.js (Para agregar todos los archivos con extensión .js)
 git add -p (Agregar cambios por partes)
 git add src/(Para agregar todos los archivos en un directorio)
 
-$ git status
+#$ git status
 On branch main
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
@@ -125,7 +125,7 @@ git add .
 git commit -m "Implementar sistema de autenticación"
 git push origin main
 
-$ git commit -m "Agregar funcionalidad de login"
+#$ git commit -m "Agregar funcionalidad de login"
 [main a1b2c3d] Agregar funcionalidad de login
  2 files changed, 45 insertions(+), 3 deletions(-)
 _______________________________________________________________________________________________________________________________________________________________________________________
@@ -141,7 +141,7 @@ git push -u origin main (Sire para configurar upstream para push automático)
 
 Captura de ejecucion
 
-$ git push origin main
+#$ git push origin main
 Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
 Writing objects: 100% (3/3), 450 bytes | 450.00 KiB/s, done.
@@ -152,18 +152,13 @@ ________________________________________________________________________________
 **git pull: Descarga los cambios del repositorio remoto y los fusiona (merge) con la rama local actual.
 
 Ejemplos de uso
-# Pull de la rama actual
-git pull
-
-# Pull específico de origen y rama
-git pull origin main
-
-# Pull con rebase en lugar de merge
-git pull --rebase origin main
+git pull (Pull de la rama actual)
+git pull origin main(Pull específico de origen y rama)
+git pull --rebase origin main (pull con rebase en lugar de merge)
 
 Captura de ejecucion
 
-$ git pull origin main
+#$ git pull origin main
 remote: Enumerating objects: 5, done.
 remote: Counting objects: 100% (5/5), done.
 remote: Compressing objects: 100% (3/3), done.
@@ -188,7 +183,7 @@ git rebase --abort (Abortar rebase en caso de problemas)
 
 Captura de ejecucion
 
-$ git rebase main
+#$ git rebase main
 First, rewinding head to replay your work on top of it...
 Applying: feature: agregar nueva funcionalidad
 Applying: fix: corregir bug menor
@@ -208,7 +203,7 @@ git status -b (Estado mostrando ramas)
 
 Captura de ejecucion
 
-$ git status
+#$ git status
 On branch main
 Your branch is up to date with 'origin/main'.
 
@@ -241,7 +236,7 @@ git log -p (Log mostrando cambios)
 
 Captura de ejecucion
 
-$ git log --oneline --graph --all
+#$ git log --oneline --graph --all
 * e4f5g6h (HEAD -> main, origin/main) Agregar documentación
 * d3e4f5g Fix: corregir error en validación
 * c2d3e4f Merge branch 'feature/login'
@@ -255,25 +250,15 @@ ________________________________________________________________________________
 git diff: Muestra las diferencias entre archivos en el directorio de trabajo, el área de staging y commits. git diff
 
 Ejemplo de uso
-
-# Diferencias en working directory
-git diff
-
-# Diferencias en staging area
-git diff --staged
-
-# Diferencias entre dos commits
-git diff HEAD~1 HEAD
-
-# Diferencias de un archivo específico
-git diff archivo.txt
-
-# Diferencias entre ramas
-git diff main..feature-branch
+git diff (Diferencias en working directory)
+git diff --staged(Diferencias en staging area)
+git diff HEAD~1 HEAD (Diferencias entre dos commits)
+git diff archivo.txt (iferencias de un archivo específico)
+git diff main..feature-branch (Diferencias entre ramas)
 
 Captura de ejecucion
 
-$ git diff
+#$ git diff
 diff --git a/script.js b/script.js
 index a1b2c3d..e4f5g6h 100644
 --- a/script.js
@@ -299,12 +284,11 @@ git branch -m nuevo-nombre (Cambiar nombre de rama actual)
 
 Captura de ejecucion
 
-$ git branch
+#$ git branch
   desarrollo
   feature/login
 * main
   prueba
-
 $ git branch -a
 * main
   remotes/origin/main
@@ -347,13 +331,10 @@ ________________________________________________________________________________
 git commit --amend --no-edit:Modifica el commit más reciente sin cambiar el mensaje del commit. Útil para agregar archivos olvidados. 
 
 Ejemplo de uso
-# Agregar archivo olvidado al último commit
-git add archivo-olvidado.js
-git commit --amend --no-edit
-
-# Corregir archivos en último commit
+git add archivo-olvidado.js 
+git commit --amend --no-edit(Agregar archivo olvidado al último commit)
 git add .
-git commit --amend --no-edit
+git commit --amend --no-edit (Corregir archivos en último commit)
 
 Captura de ejecucion
 $ git add config.json
