@@ -266,9 +266,9 @@ index a1b2c3d..e4f5g6h 100644
 @@ -5,6 +5,7 @@ function validateForm() {
      const email = document.getElementById('email').value;
      if (!email.includes('@')) {
--        alert('Email inválido');
-+        showError('Por favor ingrese un email válido');
-+        return false;
+#-        alert('Email inválido');
+#+        showError('Por favor ingrese un email válido');
+#+        return false;
      }
  }
 _______________________________________________________________________________________________________________________________________________________________________________________
@@ -287,10 +287,10 @@ Captura de ejecucion
 #$ git branch
   desarrollo
   feature/login
-* main
+#* main
   prueba
-$ git branch -a
-* main
+#$ git branch -a
+#* main
   remotes/origin/main
   remotes/origin/develop
 _______________________________________________________________________________________________________________________________________________________________________________________
