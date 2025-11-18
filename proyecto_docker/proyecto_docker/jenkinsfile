@@ -1,3 +1,5 @@
+// Esto es un comentario de una sola línea
+
 pipeline {
     agent any
 
