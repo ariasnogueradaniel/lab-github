@@ -1,0 +1,46 @@
+#para llamar a las iamgenes
+services:
+  imagen1-rpm:
+    build:
+      context: .
+      dockerfile: imagen1-rpm/imagen1-rpm.dockerfile
+    image: proyecto-docker:imagen1
+    container_name: rpm-env
+    tty: true
+    stdin_open: true
+
+  imagen2-ruby:
+    build:
+      context: .
+      dockerfile: imagen2-ruby/imagen2-ruby.dockerfile
+    image: proyecto-docker:imagen2
+    container_name: ruby-env
+    tty: true
+    stdin_open: true
+
+  images-node:
+    build:
+      context: .
+      dockerfile: images-node/imagen3.dockerfile
+    image: proyecto-docker:imagen3
+    container_name: node-env
+    tty: true
+    stdin_open: true
+
+  images-python:
+    build:
+      context: .
+      dockerfile: images-python/imagen4-python.dockerfile
+    image: proyecto-docker:imagen4
+    container_name: python-env
+    tty: true
+    stdin_open: true
+
+  images-full:
+    build:
+      context: .
+      dockerfile: images-full/imagesFull.dockerfile
+    image: proyecto-docker:full5
+    container_name: full-stack-env
+    tty: true
+    stdin_open: true
