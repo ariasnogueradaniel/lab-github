@@ -1,22 +1,23 @@
-// Esto es un comentario de una sola línea
-
 pipeline {
     agent any
+    
+    environment {
+        IMAGE_NAME = "caosbinario/homer_page"
+        VERSION = "1.0.0-${BUILD_ID}"
+        DOCKERFILE_PATH = "02-primer-pipeline/Dockerfile"
+        BUILD_CONTEXT = "02-primer-pipeline"
+    }
 
     stages {
         stage('docker build') {
             steps {
-                script {
-                    sh "docker build -f 02-primer-pipeline/Dockerfile -t caosbinario/homer_page:1.0.0-${BUILD_ID} 02-primer-pipeline"
-                }
+                bat "docker build -f ${DOCKERFILE_PATH} -t ${IMAGE_NAME}:${VERSION} ${BUILD_CONTEXT}"
             }
         }
 
         stage('docker push') {
             steps {
-                script {
-                    sh "docker push caosbinario/homer_page:1.0.0-${BUILD_ID}"
-                }
+                bat "docker push ${IMAGE_NAME}:${VERSION}"
             }
         }
     }
