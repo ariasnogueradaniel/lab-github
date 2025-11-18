@@ -2,6 +2,17 @@ pipeline {
     agent any
 
     stages {
+        stage('Create Dockerfile') {
+            steps {
+                bat '''
+                echo # Dockerfile generado automáticamente > Dockerfile
+                echo FROM nginx:alpine >> Dockerfile
+                echo COPY . /usr/share/nginx/html >> Dockerfile
+                echo EXPOSE 80 >> Dockerfile
+                '''
+            }
+        }
+
         stage('docker build') {
             steps {
                 bat "docker build -t caosbinario/homer_page:1.0.0-${BUILD_ID} ."
