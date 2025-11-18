@@ -1,23 +1,16 @@
 pipeline {
     agent any
-    
-    environment {
-        IMAGE_NAME = "caosbinario/homer_page"
-        VERSION = "1.0.0-${BUILD_ID}"
-        DOCKERFILE_PATH = "02-primer-pipeline/Dockerfile"
-        BUILD_CONTEXT = "02-primer-pipeline"
-    }
 
     stages {
         stage('docker build') {
             steps {
-                bat "docker build -f ${DOCKERFILE_PATH} -t ${IMAGE_NAME}:${VERSION} ${BUILD_CONTEXT}"
+                bat "docker build -t caosbinario/homer_page:1.0.0-${BUILD_ID} ."
             }
         }
 
         stage('docker push') {
             steps {
-                bat "docker push ${IMAGE_NAME}:${VERSION}"
+                bat "docker push caosbinario/homer_page:1.0.0-${BUILD_ID}"
             }
         }
     }
